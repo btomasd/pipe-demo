@@ -31,8 +31,22 @@ stage('Test') {
             registryCredential = 'dockerhub'           }           
             steps{               
                 script {                   
-                    def appimage = docker.build registry + ":$BUILD_NUMBER"                   docker.withRegistry( '', registryCredential ) {                       appimage.push()                       appimage.push('latest')                   }               }           }       }       
-                    stage ('Deploy') {           
-                        steps {               
-                            script{                   
-                                def image_id = registry + ":$BUILD_NUMBER"                   sh "ansible-playbook  playbook.ymhttps://github.com/btomasd/pipe-demo --extra-vars \"image_id=${image_id}\""               }           }       }   }}
+                    def appimage = docker.build registry + ":$BUILD_NUMBER"                   
+                    docker.withRegistry( '', registryCredential ) { 
+                                              appimage.push()                       
+                                              appimage.push('latest')                  
+                         }              
+                          }  
+                                   } 
+                                   
+                                         }       
+    stage ('Deploy') {           
+        steps {               
+            script{                   
+            def image_id = registry + ":$BUILD_NUMBER"                   
+            sh "ansible-playbook  playbook.ymhttps://github.com/btomasd/pipe-demo --extra-vars \"image_id=${image_id}\""              
+             }          
+              }       
+              }   
+              }
+}
