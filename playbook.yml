@@ -6,6 +6,8 @@
         definition: ""
         validate_certs: no
         namespace: default
+        connections:
+          kubeconfig:  ~jenkins/.kube
         #src: service.yml
 
     - name : Deploy the app 
