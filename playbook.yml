@@ -15,4 +15,6 @@
         state: present  
         definition: ""
         validate_certs: no
-        namespace: default        
+        namespace: default
+        connections:
+          kubeconfig:  ~jenkins/.kube
