@@ -1,17 +1,13 @@
 - hosts: localhost
   tasks:
 
-    - name : Test
-      shell: cat ~/.kube/config
-
-
     - name : Deploy the Service 
       k8s:
         state: present  
         definition: ""
         validate_certs: no
         namespace: default
-        kubeconfig: ~/.kube/config
+        kubeconfig: ~/.kube
 
     # - name : Deploy the app 
     #   k8s:
