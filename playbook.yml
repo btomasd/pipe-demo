@@ -1,20 +1,23 @@
 - hosts: localhost
   tasks:
+
+    - name : Test
+      shell: cat ~/.kube/config
+
+
     - name : Deploy the Service 
       k8s:
         state: present  
         definition: ""
         validate_certs: no
         namespace: default
-        connections:
-          kubeconfig:  ~jenkins/.kube
-        #src: service.yml
+        kubeconfig: ~/.kube/config
 
-    - name : Deploy the app 
-      k8s:
-        state: present  
-        definition: ""
-        validate_certs: no
-        namespace: default
-        connections:
-          kubeconfig:  ~jenkins/.kube
+    # - name : Deploy the app 
+    #   k8s:
+    #     state: present  
+    #     definition: ""
+    #     validate_certs: no
+    #     namespace: default
+    #     connections:
+    #       kubeconfig:  ~jenkins/.kube
