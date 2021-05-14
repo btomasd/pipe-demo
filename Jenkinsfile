@@ -41,22 +41,22 @@ pipeline {
                         }       
                         
                     }       
-        // stage('Publish') {           
-        //     environment {               
-        //         registryCredential = 'dockerHub'           
-        //         }           
-        //         steps{               
-        //             script {                   
-        //                 def appimage = docker.build registry + ":$BUILD_NUMBER"                   
-        //                 docker.withRegistry( '', registryCredential ) 
-        //                 { 
-        //                                         appimage.push()                       
-        //                                         appimage.push('latest')                  
-        //                     }              
-        //                     }  
-        //                     } 
+        stage('Publish') {           
+            environment {               
+                registryCredential = 'dockerHub'           
+                }           
+                steps{               
+                    script {                   
+                        def appimage = docker.build registry + ":$BUILD_NUMBER"                   
+                        docker.withRegistry( '', registryCredential ) 
+                        { 
+                                                appimage.push()                       
+                                                appimage.push('latest')                  
+                            }              
+                            }  
+                            } 
                                     
-        //             }       
+                    }       
         // stage ('Deploy') {           
         //     steps {               
         //         script{                   
