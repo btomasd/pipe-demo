@@ -4,10 +4,12 @@
     - name : Deploy the Service 
       k8s:
         state: present  
-        definition: ""
+#        definition: ""
         validate_certs: no
         namespace: default
-        kubeconfig: ~/.kube
+        src: service.yml
+#        kubeconfig: ~/.kube
+#        kubeconfig: ~/.kube
 
     # - name : Deploy the app 
     #   k8s:
