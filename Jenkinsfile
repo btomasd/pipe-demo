@@ -6,7 +6,7 @@ pipeline {
     GOCACHE = "/tmp"   
     }   
     stages {       
-        stage('Build the Image') {           
+        stage('Build the deployment exec') {           
         agent {               
         docker {                   
             image 'golang'              
@@ -24,7 +24,7 @@ pipeline {
                 sh 'go build'                        
                  }           
         }       
-            stage('Test the Image') {           
+            stage('Test the Executable') {           
                 agent {               
                     docker {                   
                     image 'golang'              
@@ -41,7 +41,7 @@ pipeline {
                         }       
                         
                     }       
-        stage('Deploy the Image to Repository') {           
+        stage('DDockerize') {           
             environment {               
                 registryCredential = 'dockerHub'           
                 }           

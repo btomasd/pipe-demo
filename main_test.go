@@ -24,17 +24,17 @@ package main
 import "testing"
 
 func TestHelloWorld(t *testing.T) {
-	if helloworld() != "Hello World!!" {
+	if helloworld() != "Hello World!" {
 		t.Fatal("Test fail")
 	}
 }
 
-func TestAdd(t *testing.T) {
-	got := addition(1, 2)
-	want := 3
+// func TestAdd(t *testing.T) {
+// 	got := addition(1, 2)
+// 	want := 3
 
-	if got != want {
-		t.Errorf("Oh no! Seems you can't add, you got %x", got)
-	}
+// 	if got != want {
+// 		t.Errorf("Oh no! Seems you can't add, you got %x", got)
+// 	}
 
-}
+// }
