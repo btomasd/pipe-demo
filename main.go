@@ -21,17 +21,15 @@
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func helloworld() string {
 	return "Hello World!"
 }
 
-func addition(a, b int) (res int) {
-	return a + b
-}
+// func addition(a, b int) (res int) {
+// 	return a + b
+// }
 
 func main() {
 	fmt.Println(helloworld())
