@@ -6,7 +6,7 @@ pipeline {
     GOCACHE = "/tmp"   
     }   
     stages {       
-        stage('Build my code ') {           
+        stage('Build Stage') {           
         agent {               
         docker {                   
             image 'golang'              
